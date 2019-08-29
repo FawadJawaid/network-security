@@ -1,0 +1,16 @@
+                                             CREATING RSA KEY PAIR
+                                             ----------------------
+
+1) Generating a Private.key
+OpenSSL> genrsa -out private.key 2048
+
+2) Generating a Public.key
+OpenSSL> rsa -in private.key -out public.key -outform PEM -pubout
+
+3) Create file input.txt
+
+4) Encrypting input.txt using private key and saving it in input.rsa 
+OpenSSL> rsautl -encrypt -inkey private.key -in input.txt -out input.rsa
+
+5) Getting p, e, q, n, d
+OpenSSL> rsa -text -in private.key -out variables.txt
